@@ -1,79 +1,162 @@
-[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-2e0aaae1b6195c2367325f4f02e2d04e9abb55f0b24a779b69b11b9e10269abc.svg)](https://classroom.github.com/online_ide?assignment_repo_id=19871967&assignment_repo_type=AssignmentRepo)
-# MERN Stack Integration Assignment
+# 🍲 Recipe Sharing App
 
-This assignment focuses on building a full-stack MERN (MongoDB, Express.js, React.js, Node.js) application that demonstrates seamless integration between front-end and back-end components.
+A full-stack MERN (MongoDB, Express, React, Node.js) application where users can create, share, and discover delicious recipes.
 
-## Assignment Overview
+---
 
-You will build a blog application with the following features:
-1. RESTful API with Express.js and MongoDB
-2. React front-end with component architecture
-3. Full CRUD functionality for blog posts
-4. User authentication and authorization
-5. Advanced features like image uploads and comments
+## 📖 Project Overview
 
-## Project Structure
+The **Recipe Sharing App** is an interactive platform where:
+
+* Users can register and log in securely.
+* Users can post, edit, and delete recipes.
+* Recipes are categorized and searchable.
+* Other users can view and comment on recipes.
+* Admins can manage categories.
+
+---
+Project Structure
+recipe-sharing-app/
+├── client/                     # React frontend
+│   ├── public/
+│   ├── src/
+│   │   ├── components/         # Reusable components (Navbar, PostItem, etc.)
+│   │   ├── context/            # AuthContext for user session management
+│   │   ├── hooks/              # Custom React hooks
+│   │   ├── pages/              # Pages like Home, Login, Register, Dashboard
+│   │   ├── services/           # Axios instance + API functions
+│   │   ├── utils/              # ProtectedRoute and helpers
+│   │   └── App.jsx             # Main component with routes
+│   └── package.json
+│   └── vite.config.js
+│
+├── server/                     # Node.js backend
+│   ├── config/                 # MongoDB config
+    ├─  Controllers/            # Route logic (Post, Auth, Category, etc.)
+│   ├── middleware/             # Auth, validateRequest, file upload
+│   ├── models/                 # Mongoose schemas (User, Post, Category)
+│   ├── routes/                 # Express routers
+│   ├── uploads/                # Uploaded images
+│   ├── server.js               # Main Express entry file 
+│   ├─  package.json               
+│   └── .env                    # Environment variables
+├── screenshots                 # Screenshots of the application                        
+├── .gitignore
+└── README.md
+
+
+## ⚙️ Setup Instructions
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Lutty112/week-4-mern-integration-assignment-Lutty112.git
+cd week-4-mern-integration-assignment-Lutty112
+```
+
+### 2. Server Setup
+
+```bash
+cd server
+pnpm install
+touch .env
+```
+
+Create a `.env` file with the following content:
 
 ```
-mern-blog/
-├── client/                 # React front-end
-│   ├── public/             # Static files
-│   ├── src/                # React source code
-│   │   ├── components/     # Reusable components
-│   │   ├── pages/          # Page components
-│   │   ├── hooks/          # Custom React hooks
-│   │   ├── services/       # API services
-│   │   ├── context/        # React context providers
-│   │   └── App.jsx         # Main application component
-│   └── package.json        # Client dependencies
-├── server/                 # Express.js back-end
-│   ├── config/             # Configuration files
-│   ├── controllers/        # Route controllers
-│   ├── models/             # Mongoose models
-│   ├── routes/             # API routes
-│   ├── middleware/         # Custom middleware
-│   ├── utils/              # Utility functions
-│   ├── server.js           # Main server file
-│   └── package.json        # Server dependencies
-└── README.md               # Project documentation
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
 ```
 
-## Getting Started
+Run the backend:
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Follow the setup instructions in the `Week4-Assignment.md` file
-4. Complete the tasks outlined in the assignment
+```bash
+pnpm run dev
+```
 
-## Files Included
+### 3. Client Setup
 
-- `Week4-Assignment.md`: Detailed assignment instructions
-- Starter code for both client and server:
-  - Basic project structure
-  - Configuration files
-  - Sample models and components
+```bash
+cd client
+pnpm install
+pnpm run dev
+```
+Then open: http://localhost:5173
+---
 
-## Requirements
+## 🔗 API Documentation
 
-- Node.js (v18 or higher)
-- MongoDB (local installation or Atlas account)
-- npm or yarn
-- Git
+### Auth Routes
 
-## Submission
+* `POST /api/auth/register` — Register new user
+* `POST /api/auth/login` — Log in and get JWT token
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+### Post Routes
 
-1. Complete both the client and server portions of the application
-2. Implement all required API endpoints
-3. Create the necessary React components and hooks
-4. Document your API and setup process in the README.md
-5. Include screenshots of your working application
+* `GET /api/posts/` — Get all recipes
+* `GET /api/posts/:slug` — Get a single recipe by slug
+* `POST /api/posts/` — Create a recipe *(protected)*
+* `PUT /api/posts/:id` — Update a recipe *(owner/admin only)*
+* `DELETE /api/posts/:id` — Delete a recipe *(owner/admin only)*
 
-## Resources
+### Category Routes
 
-- [MongoDB Documentation](https://docs.mongodb.com/)
-- [Express.js Documentation](https://expressjs.com/)
-- [React Documentation](https://react.dev/)
-- [Node.js Documentation](https://nodejs.org/en/docs/)
-- [Mongoose Documentation](https://mongoosejs.com/docs/) 
+* `GET /api/category/` — List all categories
+* `POST /api/category/` — Add a new category *(protected)*
+* `DELETE /api/category/:id` — Delete a category *(protected)*
+
+---
+
+## ✅ Features Implemented
+
+* Secure user registration and login (JWT-based)
+* CRUD for recipes with slug-based access
+* Recipe categories and tags
+* Image upload for featured images
+* Comment section per recipe
+* Role-based authorization for admin functions
+* React UI with Tailwind CSS
+* Route protection with context
+* Responsive layout for desktop and mobile
+---
+
+🌍 Vercel Deployment
+The app is deployed and publicly available at:
+
+🔗 Live URL:(https://week-3-react-js-assignment-lutty112.vercel.app/)
+---
+
+## 🖼️ Screenshots
+
+### Homepage
+
+![Homepage](Screenshots/home.png)
+
+### Register Page
+
+![Register](Screenshots/register.png)
+
+### Login Page
+
+![Login](Screenshots/login.png)
+
+### Dashboard View
+
+![Dashboard](Screenshots/Dashboard.png)
+
+---
+
+## 🙋🏻 Contributing
+
+Contributions are welcome! Please fork the repo and submit a pull request.
+
+## 👩‍💻 Author
+Lutfia Mosi — GitHub 
+---
+
+## ℹ️ License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+
