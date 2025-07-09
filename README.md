@@ -121,11 +121,7 @@ Then open: http://localhost:5173
 * Responsive layout for desktop and mobile
 ---
 
-🌍 Vercel Deployment
-The app is deployed and publicly available at:
 
-🔗 Live URL:(https://week-3-react-js-assignment-lutty112.vercel.app/)
----
 
 ## 🖼️ Screenshots
 
