@@ -126,19 +126,12 @@ Then open: http://localhost:5173
 ## 🖼️ Screenshots
 
 ### Homepage
+![Home](Screenshots/Home.png)
 
-![Homepage](Screenshots/home.png)
-
-### Register Page
-
-![Register](Screenshots/register.png)
-
-### Login Page
-
-![Login](Screenshots/login.png)
+### Register & Login Page
+![Register&Login](<Screenshots/Register & Login.png>)
 
 ### Dashboard View
-
 ![Dashboard](Screenshots/Dashboard.png)
 
 ---
