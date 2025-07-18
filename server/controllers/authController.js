@@ -21,19 +21,22 @@ exports.register = async (req, res) => {
 
 
 // Login Endpoint Logic
- exports.login = async (req, res) => {
-   const { email, password } = req.body;
+exports.login = async (req, res) => {
+  const { email, password } = req.body;
 
-   const user = await User.findOne({ email });
-   if (!user) return res.status(404).json({ message: "User Not Found"});
+  const user = await User.findOne({ email });
+  if (!user) return res.status(404).json({ message: "User Not Found" });
 
-   const isMatch = await user.matchPassword(password); 
-   if (!isMatch) return res.status(401).json({ message: "Incorrect password" });
+  const isMatch = await user.matchPassword(password);
+  if (!isMatch) return res.status(401).json({ message: "Incorrect password" });
 
-   const token =jwt.sign({ id: user._id, role: user.role}, process.env.JWT_SECRET, {expiresIn: '1h'} );
-     res.json({ token, user: { name: user.name, email: user.email } });  
+  const token = jwt.sign(
+    { id: user._id, role: user.role },
+    process.env.JWT_SECRET,
+    { expiresIn: '1h' }
+  );
 
-    res.json({
+  res.json({
     token,
     user: {
       id: user._id,
@@ -42,5 +45,5 @@ exports.register = async (req, res) => {
       role: user.role,
     }
   });
- };    
+};
 

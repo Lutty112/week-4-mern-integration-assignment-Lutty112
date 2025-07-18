@@ -3,9 +3,19 @@ import { Link } from 'react-router-dom';
 export default function PostItem({ post }) {
   return (
     <div className="p-4 border rounded shadow hover:shadow-lg transition-shadow duration-200">
+      {/* Display the image */}
+      <img
+        src={`http://localhost:5000/uploads/${post.image}`}
+        alt={post.title}
+        className="w-full h-48 object-cover mb-4 rounded"
+      />
+
+      {/* Post title and description */}
       <h2 className="text-xl font-semibold mb-2">{post.title}</h2>
       <p className="mb-4">{post.description}</p>
-      <Link to={`/posts/${post.slug}`} className="text-orange-600 hover:underline">
+
+      {/* Link to full post */}
+      <Link to={`/posts/${post._id}`} className="text-orange-600 hover:underline">
         Read More
       </Link>
     </div>

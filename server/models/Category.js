@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const CategorySchema = new mongoose.Schema(
   {
     name: {type: String, required: true, unique: true, trim: true},
-    slug: {type: String, required: true, unique: true},
+    slug: {type: String },
     image: {type: String, default: 'default-category.jpg'},
     description: {type: String, required: true},
   },
