@@ -16,7 +16,18 @@ dotenv.config();
 const app = express();
 connectDB();
 
-app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
+// Allow only frontend on Vercel to connect
+const allowedOrigins = [
+  'https://week-4-mern-integration-assignment-chi.vercel.app',
+  'https://week-4-mern-integration-assignment-bfk9.onrender.com',
+  'http://localhost:5173',
+  ];
+
+// CORS for Express
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true,
+}));
 
  // Middlewares
 app.use(helmet());
@@ -37,7 +48,7 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 const server = app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on http://0.0.0.0:${PORT}`);
 });
 
 
