@@ -2,9 +2,9 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "server.cjs",
   "scripts": {
-    "start": "node server.js",
+    "start": "node server.cjs",
     "dev": "pnpm start",
     "build": "pnpm install --prefix client && pnpm run build --prefix client && pnpm install"
   },
