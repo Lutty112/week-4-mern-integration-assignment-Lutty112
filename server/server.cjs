@@ -10,11 +10,8 @@ const errorHandler = require('./middleware/errorHandler');
 const helmet = require('helmet');
 const morgan = require('morgan');
 const path = require('path');
-const fileURLToPath = require('url');
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
+dotenv.config();
 
 const app = express();
 connectDB();
