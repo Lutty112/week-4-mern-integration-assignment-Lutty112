@@ -121,8 +121,6 @@ Then open: http://localhost:5173
 * Responsive layout for desktop and mobile
 ---
 
-
-
 ## 🖼️ Screenshots
 
 ### Homepage
@@ -134,6 +132,10 @@ Then open: http://localhost:5173
 ### Dashboard View
 ![Dashboard](Screenshots/Dashboard.png)
 
+---
+Deployment 
+🔗 Vercel : https://week-4-mern-integration-assignment-chi.vercel.app
+🔗 Render : https://week-4-mern-integration-assignment-bfk9.onrender.com/api
 ---
 
 ## 🙋🏻 Contributing
