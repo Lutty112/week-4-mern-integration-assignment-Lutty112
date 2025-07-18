@@ -35,7 +35,7 @@ export default function PostList({ posts }) {
             {/* RIGHT: Image */}
             {post.image && (
                <img
-                src={`http://localhost:5000${post.image}`}
+                src={`http://week-4-mern-integration-assignment-bfk9.onrender.com${post.image}`}
                 alt={post.title}
                 className="w-full max-w-sm rounded-lg object-cover"
                />

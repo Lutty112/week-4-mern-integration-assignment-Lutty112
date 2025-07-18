@@ -5,7 +5,7 @@ export default function PostItem({ post }) {
     <div className="p-4 border rounded shadow hover:shadow-lg transition-shadow duration-200">
       {/* Display the image */}
       <img
-        src={`http://localhost:5000/uploads/${post.image}`}
+        src={`http://week-4-mern-integration-assignment-bfk9.onrender.com/uploads/${post.image}`}
         alt={post.title}
         className="w-full h-48 object-cover mb-4 rounded"
       />
