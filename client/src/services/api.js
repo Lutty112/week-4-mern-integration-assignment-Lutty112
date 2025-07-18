@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Create axios instance with base URL
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
+  baseURL: 'https://week-4-mern-integration-assignment-bfk9.onrenderr.com/api',
   headers: {
     'Content-Type': 'application/json',
   },
