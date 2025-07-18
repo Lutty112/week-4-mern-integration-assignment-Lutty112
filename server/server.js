@@ -1,5 +1,5 @@
 // Import required modules
-require("dotenv").config();
+const dotenv = require('dotenv');
 const express = require('express');
 const cors = require('cors');
 const connectDB = require('./config/db');
